@@ -3,7 +3,7 @@ services:
     - docker
 stages:
   - name: deploy
-    if: branch = master AND type = push
+    if: branch = travis-fix AND type = push
 jobs:
   include:
     - stage: deploy
