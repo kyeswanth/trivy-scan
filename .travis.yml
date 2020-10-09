@@ -3,12 +3,12 @@ services:
     - docker
 stages:
   - name: deploy
-    if: branch = master AND type = push
+    if: branch = test-trivy-travis-fix AND type = push
 jobs:
   include:
     - stage: deploy
       script:
         - echo "$DOCKER_API_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - export TRIVY_REPO=somrit/trivy-scan
+        - export TRIVY_REPO=s1thk/trivy-scan
         - docker build -f trivy/Dockerfile -t $TRIVY_REPO:build-$TRAVIS_BUILD_NUMBER .
         - docker push $TRIVY_REPO
