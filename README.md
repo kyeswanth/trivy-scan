@@ -1,2 +1,2 @@
 # trivy-scan
-Docker image for security scanning
+Docker image for security scanning.
